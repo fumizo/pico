@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController{
-    UIImageView *maru;
+    UIImageView *maru[4];
     
     UIImage *maruArray[4];
+
 }
 
 
