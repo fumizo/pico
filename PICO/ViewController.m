@@ -114,23 +114,51 @@
 - (void)swipeUpward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右上");
+    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    maru[0].center=CGPointMake(320, 0);//ここに画像を表示
+    [UIView commitAnimations]; //アニメーションの実行
+    
+    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
 }
 
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左下");
+    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    maru[0].center=CGPointMake(0, 568);//ここに画像を表示
+    [UIView commitAnimations]; //アニメーションの実行
+    
+    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
 }
 
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左上");
+    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    maru[0].center=CGPointMake(0, 0);//ここに画像を表示
+    [UIView commitAnimations]; //アニメーションの実行
+
+    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
 }
 
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右下");
+    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    maru[0].center=CGPointMake(320, 568);//ここに画像を表示
+    [UIView commitAnimations]; //アニメーションの実行
+
+    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,5 +166,36 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)delete{
+    [maru[0] removeFromSuperview];
+}
+
+-(void)add{
+    for (int i = 0; i < 4; i++) {
+        maru[i] = [[UIImageView alloc] init];
+        maru[i].image = maruArray[i];
+        if (i == 0) {
+            maru[i].frame = CGRectMake(110, 190, 50, 50);
+            maru[i].userInteractionEnabled = YES;
+            [self.view addSubview:maru[i]];
+        }else if (i == 1) {
+            maru[i].frame = CGRectMake(160, 190, 50, 50);
+            maru[i].userInteractionEnabled = YES;
+            [self.view addSubview:maru[i]];
+        }else if (i == 2) {
+            maru[i].frame = CGRectMake(110, 240, 50, 50);
+            maru[i].userInteractionEnabled = YES;
+            [self.view addSubview:maru[i]];
+        }else if (i == 3) {
+            maru[i].frame = CGRectMake(160, 240, 50, 50);
+            maru[i].userInteractionEnabled = YES;
+            [self.view addSubview:maru[i]];
+        }
+    }
+    [self moveview];
+    
+}
+
 
 @end

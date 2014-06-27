@@ -12,8 +12,11 @@
     UIImageView *maru[4];
     
     UIImage *maruArray[4];
+    
+    int move;
 
 }
+
 
 
 
