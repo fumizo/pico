@@ -26,15 +26,12 @@
 //    maru.image = [UIImage imageNamed:@"maru.png"];
 //    [self.view addSubview:maru];
     
-    maruArray[0] = [UIImage imageNamed:@"marumaru.png"];
-    maruArray[1] = [UIImage imageNamed:@"marumaru.png"];
-    maruArray[2] = [UIImage imageNamed:@"marumaru.png"];
-    maruArray[3] = [UIImage imageNamed:@"marumaru.png"];
-    //[maru setImage:maruArray[0]];
+//    maruArray[0] = [UIImage imageNamed:@"marumaru.png"];
+//    maruArray[1] = [UIImage imageNamed:@"marumaru.png"];
+//    maruArray[2] = [UIImage imageNamed:@"marumaru.png"];
+//    maruArray[3] = [UIImage imageNamed:@"marumaru.png"];
     
-    //maru.frame = CGRectMake(30, 30, 50, 50);
-    //[self.view addSubview:maru];
-    
+        [self color];
     
     for (int i = 0; i < 4; i++) {
         maru[i] = [[UIImageView alloc] init];
@@ -59,6 +56,7 @@
 
     }
     [self moveview];
+    
 }
 
 //#pragma mark - init
@@ -71,6 +69,64 @@
 //    }
 //    return self;
 //}
+
+- (void)color{
+    /*---左上の丸---*/
+    // 0から3の乱数を生成
+    random0 = arc4random_uniform(4);
+    NSLog(@"random0...%d",random0);
+    if (random == 0) {
+        maruArray[0] = [UIImage imageNamed:@"marumaruBlue.png"];
+    }else if(random0 ==1){
+        maruArray[0] = [UIImage imageNamed:@"marumaruGreen.png"];
+    }else if(random0 ==2){
+        maruArray[0] = [UIImage imageNamed:@"marumaruPink.png"];
+    }else if(random0 ==3){
+        maruArray[0] = [UIImage imageNamed:@"marumaruYellow.png"];
+    }
+    
+    /*---右上の丸---*/
+    random1 = arc4random_uniform(4);
+    NSLog(@"random1...%d",random1);
+    if (random1 == 0) {
+        maruArray[1] = [UIImage imageNamed:@"marumaruBlue.png"];
+    }else if(random1 ==1){
+        maruArray[1] = [UIImage imageNamed:@"marumaruGreen.png"];
+    }else if(random1 ==2){
+        maruArray[1] = [UIImage imageNamed:@"marumaruPink.png"];
+    }else if(random1 ==3){
+        maruArray[1] = [UIImage imageNamed:@"marumaruYellow.png"];
+    }
+    
+    /*---左下の丸---*/
+    random2 = arc4random_uniform(4);
+    NSLog(@"random2...%d",random2);
+    if (random2 == 0) {
+        maruArray[2] = [UIImage imageNamed:@"marumaruBlue.png"];
+    }else if(random2 ==1){
+        maruArray[2] = [UIImage imageNamed:@"marumaruGreen.png"];
+    }else if(random2 ==2){
+        maruArray[2] = [UIImage imageNamed:@"marumaruPink.png"];
+    }else if(random2 ==3){
+        maruArray[2] = [UIImage imageNamed:@"marumaruYellow.png"];
+    }
+    
+    /*---右下の丸---*/
+    random3 = arc4random_uniform(4);
+    NSLog(@"random3...%d",random3);
+    if (random3 == 0) {
+        maruArray[3] = [UIImage imageNamed:@"marumaruBlue.png"];
+    }else if(random3 ==1){
+        maruArray[3] = [UIImage imageNamed:@"marumaruGreen.png"];
+    }else if(random3 ==2){
+        maruArray[3] = [UIImage imageNamed:@"marumaruPink.png"];
+    }else if(random3 ==3){
+        maruArray[3] = [UIImage imageNamed:@"marumaruYellow.png"];
+    }
+
+
+
+}
 
 
 -(void)moveview{
@@ -121,6 +177,7 @@
     
     [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
     [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
+    
 }
 
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
@@ -193,8 +250,9 @@
             [self.view addSubview:maru[i]];
         }
     }
+
     [self moveview];
-    
+    [self color];
 }
 
 

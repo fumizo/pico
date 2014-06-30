@@ -23,6 +23,10 @@
 		4F9F7358195D73290082669D /* PICOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7357195D73290082669D /* PICOTests.m */; };
 		4F9F7364195D7F620082669D /* marumaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7363195D7F620082669D /* marumaru.png */; };
 		4F9F7366195DAAE60082669D /* octagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7365195DAAE60082669D /* octagon.png */; };
+		4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7367196196CC0082669D /* marumaruBlue.png */; };
+		4F9F736C196196CC0082669D /* marumaruGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7368196196CC0082669D /* marumaruGreen.png */; };
+		4F9F736D196196CC0082669D /* marumaruPink.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7369196196CC0082669D /* marumaruPink.png */; };
+		4F9F736E196196CC0082669D /* marumaruYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F736A196196CC0082669D /* marumaruYellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		4F9F7357195D73290082669D /* PICOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICOTests.m; sourceTree = "<group>"; };
 		4F9F7363195D7F620082669D /* marumaru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaru.png; sourceTree = "<group>"; };
 		4F9F7365195DAAE60082669D /* octagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = octagon.png; sourceTree = "<group>"; };
+		4F9F7367196196CC0082669D /* marumaruBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruBlue.png; sourceTree = "<group>"; };
+		4F9F7368196196CC0082669D /* marumaruGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruGreen.png; sourceTree = "<group>"; };
+		4F9F7369196196CC0082669D /* marumaruPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruPink.png; sourceTree = "<group>"; };
+		4F9F736A196196CC0082669D /* marumaruYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruYellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,10 @@
 		4F9F7332195D73290082669D /* PICO */ = {
 			isa = PBXGroup;
 			children = (
+				4F9F7367196196CC0082669D /* marumaruBlue.png */,
+				4F9F7368196196CC0082669D /* marumaruGreen.png */,
+				4F9F7369196196CC0082669D /* marumaruPink.png */,
+				4F9F736A196196CC0082669D /* marumaruYellow.png */,
 				4F9F7365195DAAE60082669D /* octagon.png */,
 				4F9F7363195D7F620082669D /* marumaru.png */,
 				4F9F733B195D73290082669D /* AppDelegate.h */,
@@ -235,10 +247,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9F7345195D73290082669D /* Images.xcassets in Resources */,
+				4F9F736E196196CC0082669D /* marumaruYellow.png in Resources */,
 				4F9F7364195D7F620082669D /* marumaru.png in Resources */,
 				4F9F7366195DAAE60082669D /* octagon.png in Resources */,
+				4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */,
+				4F9F736C196196CC0082669D /* marumaruGreen.png in Resources */,
 				4F9F7337195D73290082669D /* InfoPlist.strings in Resources */,
 				4F9F7340195D73290082669D /* Main.storyboard in Resources */,
+				4F9F736D196196CC0082669D /* marumaruPink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
