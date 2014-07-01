@@ -30,7 +30,6 @@
 //    maruArray[1] = [UIImage imageNamed:@"marumaru.png"];
 //    maruArray[2] = [UIImage imageNamed:@"marumaru.png"];
 //    maruArray[3] = [UIImage imageNamed:@"marumaru.png"];
-    
         [self color];
     
     for (int i = 0; i < 4; i++) {
@@ -56,19 +55,7 @@
 
     }
     [self moveview];
-    
 }
-
-//#pragma mark - init
-//- (id)initWithFrame:(CGRect)frame
-//{
-////    self = [super initWithFrame:frame];
-//    if (self) {
-//        // Initialization code
-//        [self moveview];
-//    }
-//    return self;
-//}
 
 - (void)color{
     /*---左上の丸---*/
@@ -171,12 +158,12 @@
 {
     NSLog(@"右上");
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(320, 0);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
     
     [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
+    [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //1.7秒後にviewにadd
     
 }
 
@@ -184,12 +171,12 @@
 {
     NSLog(@"左下");
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(0, 568);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
     
     [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
+    [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
 
@@ -197,12 +184,12 @@
 {
     NSLog(@"左上");
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(0, 0);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
 
     [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
+    [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
 
@@ -210,12 +197,12 @@
 {
     NSLog(@"右下");
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:1]; //アニメーションは1秒
+    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(320, 568);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
 
     [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    [self performSelector:@selector(add) withObject:nil afterDelay:2.0]; //2秒後にviewにadd
+    [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
 - (void)didReceiveMemoryWarning
@@ -229,6 +216,9 @@
 }
 
 -(void)add{
+    
+    [self color];
+    
     for (int i = 0; i < 4; i++) {
         maru[i] = [[UIImageView alloc] init];
         maru[i].image = maruArray[i];
@@ -252,8 +242,7 @@
     }
 
     [self moveview];
-    [self color];
+    
 }
-
 
 @end

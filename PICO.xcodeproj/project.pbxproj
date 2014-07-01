@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F445EFE1962FDCF0023E666 /* marumaruYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445EFD1962FDCF0023E666 /* marumaruYellow.png */; };
+		4F445F04196308E80023E666 /* octagon().png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445F03196308E80023E666 /* octagon().png */; };
 		4F9F732D195D73290082669D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F732C195D73290082669D /* Foundation.framework */; };
 		4F9F732F195D73290082669D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F732E195D73290082669D /* CoreGraphics.framework */; };
 		4F9F7331195D73290082669D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F7330195D73290082669D /* UIKit.framework */; };
@@ -26,7 +28,6 @@
 		4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7367196196CC0082669D /* marumaruBlue.png */; };
 		4F9F736C196196CC0082669D /* marumaruGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7368196196CC0082669D /* marumaruGreen.png */; };
 		4F9F736D196196CC0082669D /* marumaruPink.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7369196196CC0082669D /* marumaruPink.png */; };
-		4F9F736E196196CC0082669D /* marumaruYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F736A196196CC0082669D /* marumaruYellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F445EFD1962FDCF0023E666 /* marumaruYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruYellow.png; sourceTree = "<group>"; };
+		4F445F03196308E80023E666 /* octagon().png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octagon().png"; sourceTree = "<group>"; };
 		4F9F7329195D73290082669D /* PICO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PICO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9F732C195D73290082669D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F9F732E195D73290082669D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,7 +67,6 @@
 		4F9F7367196196CC0082669D /* marumaruBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruBlue.png; sourceTree = "<group>"; };
 		4F9F7368196196CC0082669D /* marumaruGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruGreen.png; sourceTree = "<group>"; };
 		4F9F7369196196CC0082669D /* marumaruPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruPink.png; sourceTree = "<group>"; };
-		4F9F736A196196CC0082669D /* marumaruYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruYellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +126,11 @@
 		4F9F7332195D73290082669D /* PICO */ = {
 			isa = PBXGroup;
 			children = (
+				4F445F03196308E80023E666 /* octagon().png */,
+				4F445EFD1962FDCF0023E666 /* marumaruYellow.png */,
 				4F9F7367196196CC0082669D /* marumaruBlue.png */,
 				4F9F7368196196CC0082669D /* marumaruGreen.png */,
 				4F9F7369196196CC0082669D /* marumaruPink.png */,
-				4F9F736A196196CC0082669D /* marumaruYellow.png */,
 				4F9F7365195DAAE60082669D /* octagon.png */,
 				4F9F7363195D7F620082669D /* marumaru.png */,
 				4F9F733B195D73290082669D /* AppDelegate.h */,
@@ -247,7 +250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9F7345195D73290082669D /* Images.xcassets in Resources */,
-				4F9F736E196196CC0082669D /* marumaruYellow.png in Resources */,
+				4F445EFE1962FDCF0023E666 /* marumaruYellow.png in Resources */,
+				4F445F04196308E80023E666 /* octagon().png in Resources */,
 				4F9F7364195D7F620082669D /* marumaru.png in Resources */,
 				4F9F7366195DAAE60082669D /* octagon.png in Resources */,
 				4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */,
@@ -484,6 +488,7 @@
 				4F9F735D195D73290082669D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F9F735E195D73290082669D /* Build configuration list for PBXNativeTarget "PICOTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +497,7 @@
 				4F9F7360195D73290082669D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
