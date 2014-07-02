@@ -13,12 +13,12 @@
     
     UIImage *maruArray[4];
     
-    int move;
-    
     int random0;
     int random1;
     int random2;
     int random3;
+    
+    int sumiColor;
 }
 
 

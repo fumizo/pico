@@ -157,12 +157,16 @@
 - (void)swipeUpward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右上");
+    sumiColor=3;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(320, 0);//ここに画像を表示
+    maru[0].center=CGPointMake(310, 134);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
     
-    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    if(sumiColor == random0){
+        [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    }else{}
+    
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //1.7秒後にviewにadd
     
 }
@@ -170,12 +174,16 @@
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左下");
+    sumiColor=0;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(0, 568);//ここに画像を表示
+    maru[0].center=CGPointMake(10, 434);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
     
-    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    if(sumiColor == random0){
+        [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    }else{}
+
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
@@ -183,12 +191,16 @@
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左上");
+    sumiColor=1;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(0, 0);//ここに画像を表示
+    maru[0].center=CGPointMake(10, 134);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
 
-    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    if(sumiColor == random0){
+        [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    }else{}
+
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
@@ -196,12 +208,16 @@
 - (void)swipeRight:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右下");
+    sumiColor=2;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(320, 568);//ここに画像を表示
+    maru[0].center=CGPointMake(320, 430);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
 
-    [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    if(sumiColor == random0){
+        [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
+    }else{}
+
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
