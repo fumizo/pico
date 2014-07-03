@@ -55,6 +55,13 @@
 
     }
     [self moveview];
+    
+    /*--音--*/
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"powan" ofType:@"mp3"] ;
+    NSURL *url = [NSURL fileURLWithPath:path] ;
+    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil] ;
+
+    
 }
 
 - (void)color{
@@ -157,6 +164,8 @@
 - (void)swipeUpward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右上");
+    [audio play] ; //音をならす
+    
     sumiColor=3;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
@@ -174,6 +183,8 @@
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左下");
+    [audio play] ; //音をならす
+    
     sumiColor=0;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
@@ -191,6 +202,8 @@
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左上");
+    [audio play] ; //音をならす
+    
     sumiColor=1;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
@@ -208,6 +221,8 @@
 - (void)swipeRight:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右下");
+    [audio play] ; //音をならす
+    
     sumiColor=2;
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
