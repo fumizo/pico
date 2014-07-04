@@ -52,7 +52,6 @@
              maru[i].userInteractionEnabled = YES;
             [self.view addSubview:maru[i]];
         }
-
     }
     [self moveview];
     
@@ -125,8 +124,6 @@
     }else if(random3 ==3){
         maruArray[3] = [UIImage imageNamed:@"marumaruYellow.png"];
     }
-
-
 
 }
 
@@ -218,6 +215,18 @@
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
 }
 
+//タッチのイベント
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    if ([touch.view isKindOfClass:[UIImageView class]]) {
+    }
+    
+    //順番を入れ替える
+    //[self.view bringSubviewToFront:一番うえにもってきたいビューの変数];
+    [self.view bringSubviewToFront:maru[1]];
+}
+
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
@@ -275,6 +284,7 @@
 
 -(void)delete{
     [maru[0] removeFromSuperview];
+    maru[0] = nil;
 }
 
 -(void)add{
@@ -282,6 +292,7 @@
     [self color];
     
     for (int i = 0; i < 4; i++) {
+        if (maru[i] == nil) {
         maru[i] = [[UIImageView alloc] init];
         maru[i].image = maruArray[i];
         if (i == 0) {
@@ -300,6 +311,7 @@
             maru[i].frame = CGRectMake(160, 240, 50, 50);
             maru[i].userInteractionEnabled = YES;
             [self.view addSubview:maru[i]];
+        }
         }
     }
 

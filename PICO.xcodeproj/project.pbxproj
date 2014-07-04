@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F445EFE1962FDCF0023E666 /* marumaruYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445EFD1962FDCF0023E666 /* marumaruYellow.png */; };
 		4F445F04196308E80023E666 /* octagon().png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445F03196308E80023E666 /* octagon().png */; };
-		4F445F081965942D0023E666 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445F071965942D0023E666 /* icon.png */; };
 		4F445F0C196598AB0023E666 /* pico_settei.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445F0B196598AB0023E666 /* pico_settei.png */; };
-		4F445F0F196599F00023E666 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F445F0E196599F00023E666 /* OptionViewController.m */; };
 		4F9F732D195D73290082669D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F732C195D73290082669D /* Foundation.framework */; };
 		4F9F732F195D73290082669D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F732E195D73290082669D /* CoreGraphics.framework */; };
 		4F9F7331195D73290082669D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F7330195D73290082669D /* UIKit.framework */; };
@@ -34,6 +32,8 @@
 		4FC7E85119659E2E0069A919 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC7E85019659E2E0069A919 /* AVFoundation.framework */; };
 		4FC7E85319659E900069A919 /* powan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4FC7E85219659E900069A919 /* powan.mp3 */; };
 		4FC7E85919669B890069A919 /* octagon()2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC7E85819669B890069A919 /* octagon()2.png */; };
+		4FC7E85C19669E8C0069A919 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E85B19669E8C0069A919 /* OptionViewController.m */; };
+		4FC7E85E1966B7E30069A919 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC7E85D1966B7E30069A919 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +49,7 @@
 /* Begin PBXFileReference section */
 		4F445EFD1962FDCF0023E666 /* marumaruYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruYellow.png; sourceTree = "<group>"; };
 		4F445F03196308E80023E666 /* octagon().png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octagon().png"; sourceTree = "<group>"; };
-		4F445F071965942D0023E666 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		4F445F0B196598AB0023E666 /* pico_settei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pico_settei.png; sourceTree = "<group>"; };
-		4F445F0D196599F00023E666 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
-		4F445F0E196599F00023E666 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
 		4F9F7329195D73290082669D /* PICO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PICO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9F732C195D73290082669D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F9F732E195D73290082669D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +77,9 @@
 		4FC7E85019659E2E0069A919 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4FC7E85219659E900069A919 /* powan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = powan.mp3; sourceTree = "<group>"; };
 		4FC7E85819669B890069A919 /* octagon()2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octagon()2.png"; sourceTree = "<group>"; };
+		4FC7E85A19669E8C0069A919 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
+		4FC7E85B19669E8C0069A919 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
+		4FC7E85D1966B7E30069A919 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,11 +141,11 @@
 		4F9F7332195D73290082669D /* PICO */ = {
 			isa = PBXGroup;
 			children = (
+				4FC7E85D1966B7E30069A919 /* icon.png */,
 				4FC7E85819669B890069A919 /* octagon()2.png */,
 				4F445F03196308E80023E666 /* octagon().png */,
 				4FC7E85219659E900069A919 /* powan.mp3 */,
 				4F445F0B196598AB0023E666 /* pico_settei.png */,
-				4F445F071965942D0023E666 /* icon.png */,
 				4F445EFD1962FDCF0023E666 /* marumaruYellow.png */,
 				4F9F7367196196CC0082669D /* marumaruBlue.png */,
 				4F9F7368196196CC0082669D /* marumaruGreen.png */,
@@ -159,8 +159,8 @@
 				4F9F7342195D73290082669D /* ViewController.m */,
 				4F9F7344195D73290082669D /* Images.xcassets */,
 				4F9F7333195D73290082669D /* Supporting Files */,
-				4F445F0D196599F00023E666 /* OptionViewController.h */,
-				4F445F0E196599F00023E666 /* OptionViewController.m */,
+				4FC7E85A19669E8C0069A919 /* OptionViewController.h */,
+				4FC7E85B19669E8C0069A919 /* OptionViewController.m */,
 			);
 			path = PICO;
 			sourceTree = "<group>";
@@ -276,8 +276,8 @@
 				4F445F04196308E80023E666 /* octagon().png in Resources */,
 				4F9F7364195D7F620082669D /* marumaru.png in Resources */,
 				4FC7E85919669B890069A919 /* octagon()2.png in Resources */,
-				4F445F081965942D0023E666 /* icon.png in Resources */,
 				4F9F7366195DAAE60082669D /* octagon.png in Resources */,
+				4FC7E85E1966B7E30069A919 /* icon.png in Resources */,
 				4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */,
 				4F9F736C196196CC0082669D /* marumaruGreen.png in Resources */,
 				4F9F7337195D73290082669D /* InfoPlist.strings in Resources */,
@@ -303,7 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9F7343195D73290082669D /* ViewController.m in Sources */,
-				4F445F0F196599F00023E666 /* OptionViewController.m in Sources */,
+				4FC7E85C19669E8C0069A919 /* OptionViewController.m in Sources */,
 				4F9F733D195D73290082669D /* AppDelegate.m in Sources */,
 				4F9F7339195D73290082669D /* main.m in Sources */,
 			);

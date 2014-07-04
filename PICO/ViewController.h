@@ -10,8 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface ViewController : UIViewController{
-    UIImageView *maru[4];
-    UIImage *maruArray[4];
+    UIImageView *maru[4];  //丸のimageView
+    UIImage *maruArray[4];  //丸につける画像の配列
     
     IBOutlet UIImageView *octagon;
     
@@ -28,8 +28,6 @@
     
     AVAudioPlayer *audio;
 }
-
-
 
 
 @end

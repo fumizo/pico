@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="G7u-c2-XQy" kind="modal" modalTransitionStyle="crossDissolve" id="8Yd-vZ-eVb"/>
+                                    <segue destination="PWl-JA-uTG" kind="modal" modalTransitionStyle="coverVertical" id="cir-cq-D20"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,19 +35,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="45" y="45"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="a9s-UO-kdM">
+        <!--Option View Controller-->
+        <scene sceneID="UPS-Qn-hrF">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="G7u-c2-XQy" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ur6-s4-VhY">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5mx-tI-Z0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="PWl-JA-uTG" customClass="OptionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3L1-Ov-dFm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPj-Fw-Paa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="-3"/>
+            <point key="canvasLocation" x="463" y="45"/>
         </scene>
     </scenes>
     <resources>
