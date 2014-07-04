@@ -11,15 +11,20 @@
 
 @interface ViewController : UIViewController{
     UIImageView *maru[4];
-    
     UIImage *maruArray[4];
     
+    IBOutlet UIImageView *octagon;
+    
+    
+    /*丸の色*/
     int random0;
     int random1;
     int random2;
     int random3;
     
-    int sumiColor;
+    int randomOctagon;
+    
+    int sumiColor;  //blue0,green1,pink2,yellow3
     
     AVAudioPlayer *audio;
 }

@@ -60,7 +60,15 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"powan" ofType:@"mp3"] ;
     NSURL *url = [NSURL fileURLWithPath:path] ;
     audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil] ;
-
+    
+    /*--octagon--*/
+    randomOctagon = arc4random_uniform(2);
+    NSLog(@"randomOctagon is...%d",randomOctagon);
+    if (randomOctagon == 0 ) {
+        octagon.image = [UIImage imageNamed:@"octagon().png"];
+    }else if (randomOctagon == 1){
+        octagon.image = [UIImage imageNamed:@"octagon()2.png"];
+    }
     
 }
 
@@ -166,7 +174,13 @@
     NSLog(@"右上");
     [audio play] ; //音をならす
     
-    sumiColor=3;
+    /*色の番号を決めといて画像に合わせて、場所と色をリンクさせる*/
+    if (randomOctagon == 0) {
+        sumiColor = 3;
+    }else if (randomOctagon == 1){
+        sumiColor = 0;
+    }
+    
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(310, 134);//ここに画像を表示
@@ -185,7 +199,13 @@
     NSLog(@"左下");
     [audio play] ; //音をならす
     
-    sumiColor=0;
+    if (randomOctagon == 0) {
+        sumiColor = 0;
+    }else if (randomOctagon == 1){
+        sumiColor = 3;
+    }
+    
+    
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(10, 434);//ここに画像を表示
@@ -204,7 +224,13 @@
     NSLog(@"左上");
     [audio play] ; //音をならす
     
-    sumiColor=1;
+    if (randomOctagon == 0) {
+        sumiColor = 1;
+    }else if (randomOctagon == 1){
+        sumiColor = 2;
+    }
+    
+
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(10, 134);//ここに画像を表示
@@ -223,7 +249,12 @@
     NSLog(@"右下");
     [audio play] ; //音をならす
     
-    sumiColor=2;
+    if (randomOctagon == 0) {
+        sumiColor = 2;
+    }else if (randomOctagon == 1){
+        sumiColor = 1;
+    }
+
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(320, 430);//ここに画像を表示

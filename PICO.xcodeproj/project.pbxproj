@@ -33,6 +33,7 @@
 		4F9F736D196196CC0082669D /* marumaruPink.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7369196196CC0082669D /* marumaruPink.png */; };
 		4FC7E85119659E2E0069A919 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC7E85019659E2E0069A919 /* AVFoundation.framework */; };
 		4FC7E85319659E900069A919 /* powan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4FC7E85219659E900069A919 /* powan.mp3 */; };
+		4FC7E85919669B890069A919 /* octagon()2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC7E85819669B890069A919 /* octagon()2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		4F9F7369196196CC0082669D /* marumaruPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruPink.png; sourceTree = "<group>"; };
 		4FC7E85019659E2E0069A919 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4FC7E85219659E900069A919 /* powan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = powan.mp3; sourceTree = "<group>"; };
+		4FC7E85819669B890069A919 /* octagon()2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octagon()2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +141,11 @@
 		4F9F7332195D73290082669D /* PICO */ = {
 			isa = PBXGroup;
 			children = (
+				4FC7E85819669B890069A919 /* octagon()2.png */,
+				4F445F03196308E80023E666 /* octagon().png */,
 				4FC7E85219659E900069A919 /* powan.mp3 */,
 				4F445F0B196598AB0023E666 /* pico_settei.png */,
 				4F445F071965942D0023E666 /* icon.png */,
-				4F445F03196308E80023E666 /* octagon().png */,
 				4F445EFD1962FDCF0023E666 /* marumaruYellow.png */,
 				4F9F7367196196CC0082669D /* marumaruBlue.png */,
 				4F9F7368196196CC0082669D /* marumaruGreen.png */,
@@ -272,6 +275,7 @@
 				4FC7E85319659E900069A919 /* powan.mp3 in Resources */,
 				4F445F04196308E80023E666 /* octagon().png in Resources */,
 				4F9F7364195D7F620082669D /* marumaru.png in Resources */,
+				4FC7E85919669B890069A919 /* octagon()2.png in Resources */,
 				4F445F081965942D0023E666 /* icon.png in Resources */,
 				4F9F7366195DAAE60082669D /* octagon.png in Resources */,
 				4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */,
