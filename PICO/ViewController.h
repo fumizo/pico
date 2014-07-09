@@ -34,6 +34,8 @@
     int plusScore;    //連続で成功したとき足す数を計算する用
     int pScore;       //連続で成功したときに足すスコア
     int perfectScore; //全部足したスコア
+    
+    UIImageView *firstView;
 }
 
 

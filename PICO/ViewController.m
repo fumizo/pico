@@ -30,6 +30,9 @@
 //    maruArray[1] = [UIImage imageNamed:@"marumaru.png"];
 //    maruArray[2] = [UIImage imageNamed:@"marumaru.png"];
 //    maruArray[3] = [UIImage imageNamed:@"marumaru.png"];
+
+    
+    
     plusScore = 1;
     score = 0;
     scoreLabel.text = @"0";
@@ -73,7 +76,31 @@
         octagon.image = [UIImage imageNamed:@"octagon()2.png"];
     }
     
+    
+    firstView =[[UIImageView alloc] initWithFrame:CGRectMake (0,0,320,568)];
+    firstView.image = [UIImage imageNamed:@"octagon_first.png"];
+    [self.view addSubview:firstView];
+    
+    //消す
+    //[self performSelector:@selector(firstViewDelete) withObject:nil afterDelay:1.0];
+    [self addTapToReturn];
+   
 }
+
+
+//タップで消す
+- (void)addTapToReturn {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doReturn:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)doReturn:(UITapGestureRecognizer *)tap {
+    
+    [firstView removeFromSuperview];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 - (void)color{
     /*---左上の丸---*/
