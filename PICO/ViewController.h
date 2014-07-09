@@ -27,6 +27,13 @@
     int sumiColor;  //blue0,green1,pink2,yellow3
     
     AVAudioPlayer *audio;
+    
+    /*---SCORE---*/
+    IBOutlet UILabel *scoreLabel;
+    int score;        //基本的なスコア
+    int plusScore;    //連続で成功したとき足す数を計算する用
+    int pScore;       //連続で成功したときに足すスコア
+    int perfectScore; //全部足したスコア
 }
 
 

@@ -30,6 +30,10 @@
 //    maruArray[1] = [UIImage imageNamed:@"marumaru.png"];
 //    maruArray[2] = [UIImage imageNamed:@"marumaru.png"];
 //    maruArray[3] = [UIImage imageNamed:@"marumaru.png"];
+    plusScore = 1;
+    score = 0;
+    scoreLabel.text = @"0";
+    
         [self color];
     
     for (int i = 0; i < 4; i++) {
@@ -171,6 +175,7 @@
     NSLog(@"右上");
     [audio play] ; //音をならす
     
+    
     /*色の番号を決めといて画像に合わせて、場所と色をリンクさせる*/
     if (randomOctagon == 0) {
         sumiColor = 3;
@@ -185,9 +190,23 @@
     
     if(sumiColor == random0){
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    }else{}
+        
+        score = score+25;
+        plusScore =  plusScore * 3;
+        if (plusScore % 27 == 0){
+            pScore = 25 * plusScore/27/10;
+        }
+        perfectScore = score + pScore;
+        scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
+        
+    }else{
+        maru[0] = nil;
+        plusScore = 1;
+    }
     
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //1.7秒後にviewにadd
+    
+    sender.view.tag = 1;
     
 }
 
@@ -210,22 +229,25 @@
     
     if(sumiColor == random0){
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    }else{}
+        
+        score = score+25;
+        plusScore =  plusScore * 3;
+        if (plusScore % 27 == 0){
+            pScore = 25 * plusScore/27/10;
+        }
+        perfectScore = score + pScore;
+        scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
+
+    }else{
+        maru[0] = nil;
+        plusScore = 1;
+    }
 
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
+    
+    sender.view.tag = 2;
 }
 
-//タッチのイベント
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    if ([touch.view isKindOfClass:[UIImageView class]]) {
-    }
-    
-    //順番を入れ替える
-    //[self.view bringSubviewToFront:一番うえにもってきたいビューの変数];
-    [self.view bringSubviewToFront:maru[1]];
-}
 
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
@@ -247,9 +269,24 @@
 
     if(sumiColor == random0){
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    }else{}
+        
+        score = score+25;
+        plusScore =  plusScore * 3;
+        if (plusScore % 27 == 0){
+            pScore = 25 * plusScore/27/10;
+        }
+        perfectScore = score + pScore;
+        scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
+
+        
+    }else{
+        maru[0] = nil;
+        plusScore = 1;
+    }
 
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
+    
+    sender.view.tag = 3;
 }
 
 
@@ -271,9 +308,24 @@
 
     if(sumiColor == random0){
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
-    }else{}
+        
+        score = score+25;
+        plusScore =  plusScore * 3;
+        if (plusScore % 27 == 0){
+            pScore = 25 * plusScore/27/10;
+        }
+        perfectScore = score + pScore;
+        scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
+
+        
+    }else{
+        maru[0] = nil;
+        plusScore = 1;
+    }
 
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
+    
+    sender.view.tag = 4;
 }
 
 - (void)didReceiveMemoryWarning
@@ -284,7 +336,7 @@
 
 -(void)delete{
     [maru[0] removeFromSuperview];
-    maru[0] = nil;
+    maru[0] = nil; //maru[0]を空にする（maru[i]にしたい）飛ばした丸だけを更新するため。
 }
 
 -(void)add{
@@ -318,5 +370,19 @@
     [self moveview];
     
 }
+
+/*
+//タッチのイベント
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];  //触った座標を所得する
+    if ([touch.view isKindOfClass:[UIImageView class]]) {
+        //順番を入れ替える
+        //[self.view bringSubviewToFront:一番うえにもってきたいビューの変数];
+        [self.view bringSubviewToFront:maru[2]];
+    }   //それがビューだったら
+}
+ */
+
 
 @end
