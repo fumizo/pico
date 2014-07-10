@@ -504,7 +504,7 @@
 - (void)makeLeftUpwordMaru
 {
     //DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(100, 220, MARBLE_WIDTH, MARBLE_HEIGHT)];
-    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 190, 50, 50)];
+    marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 190, 50, 50)];
     
     //[self.view addSubview:marble];
     [self color];
@@ -517,7 +517,7 @@
 
 - (void)makeRightUpwordMaru
 {
-    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 190, 50, 50)];
+    marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 190, 50, 50)];
     [self color];
     marble.image = maruView;
     marble.userInteractionEnabled = YES;
@@ -526,7 +526,7 @@
 
 - (void)makeLeftDownwordMaru
 {
-    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 240, 50, 50)];
+    marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 240, 50, 50)];
     [self color];
     marble.image = maruView;
     marble.userInteractionEnabled = YES;
@@ -535,10 +535,10 @@
 
 - (void)makeRightDownwordMaru
 {
-    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 240, 50, 50)];
+    marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 240, 50, 50)];
     [self color];
     marble.image = maruView;
-    
+    marble.userInteractionEnabled = YES;
     [self.view addSubview:marble];
 }
 
@@ -551,7 +551,7 @@
 }
 
 
-/*
+
 - (void)moveMarbles:(NSTimer *)timer
 {
     NSDictionary *dic = [timer userInfo];
@@ -599,7 +599,6 @@
         if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
     }
 }
- */
 
 
 
