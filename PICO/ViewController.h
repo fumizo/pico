@@ -10,10 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface ViewController : UIViewController <UIGestureRecognizerDelegate>{
-    UIImageView *maru[4];  //丸のimageView
+    //UIImageView *maru[4];  //丸のimageView
     //UIImage *maruArray[4];  //丸につける画像の配列
     UIImage *maruView; //丸につける画像
-//    UIImageView *marble;
+    UIImageView *marble;
     
     IBOutlet UIImageView *octagon;
     

@@ -193,33 +193,33 @@
     /* 時計回りに45度回転 */
     CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI/4);
     for (int i = 0; i < 4; i++) {
-        [maru[i] setTransform:transform];
+        [marble setTransform:transform];
     //d[maru setTransform:transform];
     
     /* 左上スワイプ */
     UISwipeGestureRecognizer *swipeLeftGesture =
     [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft:)];
     swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-    [maru[i] addGestureRecognizer:swipeLeftGesture];
+    [marble addGestureRecognizer:swipeLeftGesture];
     
     /* 右上スワイプ */
     UISwipeGestureRecognizer *swipeUpwardGesture =
     [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeUpward:)];
     swipeUpwardGesture.direction = UISwipeGestureRecognizerDirectionUp;
-    [maru[i] addGestureRecognizer:swipeUpwardGesture];
+    [marble addGestureRecognizer:swipeUpwardGesture];
     
     /* 左下スワイプ */
     UISwipeGestureRecognizer *swipeDownwardGesture =
     [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDownward:)];
     swipeDownwardGesture.direction = UISwipeGestureRecognizerDirectionDown;
-    [maru[i] addGestureRecognizer:swipeDownwardGesture];
+    [marble addGestureRecognizer:swipeDownwardGesture];
     
     
     /* 右下スワイプ */
     UISwipeGestureRecognizer *swipeRightGesture =
     [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeRight:)];
     swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    [maru[i] addGestureRecognizer:swipeRightGesture];
+    [marble addGestureRecognizer:swipeRightGesture];
 
     }
 }
@@ -243,7 +243,7 @@
     
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(310, 134);//ここに画像を表示
+    marble.center=CGPointMake(310, 134);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
     
     if(sumiColor == random0){
@@ -258,7 +258,8 @@
         scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
         
     }else{
-        maru[0] = nil;
+        marble
+        = nil;
         plusScore = 1;
     }
     
@@ -288,7 +289,7 @@
     
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(10, 434);//ここに画像を表示
+    marble.center=CGPointMake(10, 434);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
     
     if(sumiColor == random0){
@@ -303,7 +304,7 @@
         scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
 
     }else{
-        maru[0] = nil;
+        marble = nil;
         plusScore = 1;
     }
 
@@ -334,7 +335,7 @@
 
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(10, 134);//ここに画像を表示
+    marble.center=CGPointMake(10, 134);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
 
     if(sumiColor == random0){
@@ -350,7 +351,7 @@
 
         
     }else{
-        maru[0] = nil;
+        marble = nil;
         plusScore = 1;
     }
 
@@ -379,7 +380,7 @@
 
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    maru[0].center=CGPointMake(320, 430);//ここに画像を表示
+    marble.center=CGPointMake(320, 430);//ここに画像を表示
     [UIView commitAnimations]; //アニメーションの実行
 
     if(sumiColor == random0){
@@ -395,7 +396,7 @@
 
         
     }else{
-        maru[0] = nil;
+        marble = nil;
         plusScore = 1;
     }
 
@@ -417,8 +418,8 @@
 }
 
 -(void)delete{
-    [maru[0] removeFromSuperview];
-    maru[0] = nil; //maru[0]を空にする（maru[i]にしたい）飛ばした丸だけを更新するため。
+    [marble removeFromSuperview];
+    marble = nil; //maru[0]を空にする（maru[i]にしたい）飛ばした丸だけを更新するため。
 }
 
 -(void)add{
@@ -461,6 +462,7 @@
     
 }
 
+
 /*
 //タッチのイベント
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -472,10 +474,11 @@
         [self.view bringSubviewToFront:maru[2]];
     }   //それがビューだったら
 }
- */
+*/
 
 
 /*----マーブル作る----*/
+//これは今までの配列に入れる作り方
 //    for (int i = 0; i < 4; i++) {
 //        maru[i] = [[UIImageView alloc] init];
 //        maru[i].image = maruArray[i];
@@ -535,7 +538,7 @@
     UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 240, 50, 50)];
     [self color];
     marble.image = maruView;
-    marble.userInteractionEnabled = YES;
+    
     [self.view addSubview:marble];
 }
 
@@ -547,6 +550,8 @@
     return YES;
 }
 
+
+/*
 - (void)moveMarbles:(NSTimer *)timer
 {
     NSDictionary *dic = [timer userInfo];
@@ -594,6 +599,7 @@
         if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
     }
 }
+ */
 
 
 
