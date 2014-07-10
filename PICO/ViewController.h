@@ -9,21 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController{
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate>{
     UIImageView *maru[4];  //丸のimageView
-    UIImage *maruArray[4];  //丸につける画像の配列
+    //UIImage *maruArray[4];  //丸につける画像の配列
+    UIImage *maruView; //丸につける画像
+//    UIImageView *marble;
     
     IBOutlet UIImageView *octagon;
     
     
     /*丸の色*/
     int random0;
-    int random1;
-    int random2;
-    int random3;
+//    int random1;
+//    int random2;
+//    int random3;
     
-    int randomOctagon;
-    
+    int randomOctagon;  //2パターンの八角形
     int sumiColor;  //blue0,green1,pink2,yellow3
     
     AVAudioPlayer *audio;
@@ -35,7 +36,10 @@
     int pScore;       //連続で成功したときに足すスコア
     int perfectScore; //全部足したスコア
     
-    UIImageView *firstView;
+    UIImageView *firstView;  //最初の画面
+    
+    float moveX;
+    float moveY;
 }
 
 

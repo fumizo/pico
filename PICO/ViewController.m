@@ -37,30 +37,37 @@
     score = 0;
     scoreLabel.text = @"0";
     
-        [self color];
+    //[self color];
     
-    for (int i = 0; i < 4; i++) {
-        maru[i] = [[UIImageView alloc] init];
-        maru[i].image = maruArray[i];
-        if (i == 0) {
-            maru[i].frame = CGRectMake(110, 190, 50, 50);
-            maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }else if (i == 1) {
-            maru[i].frame = CGRectMake(160, 190, 50, 50);
-             maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }else if (i == 2) {
-            maru[i].frame = CGRectMake(110, 240, 50, 50);
-             maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }else if (i == 3) {
-            maru[i].frame = CGRectMake(160, 240, 50, 50);
-             maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }
-    }
+//    for (int i = 0; i < 4; i++) {
+//        maru[i] = [[UIImageView alloc] init];
+//        maru[i].image = maruArray[i];
+//        if (i == 0) {
+//            maru[i].frame = CGRectMake(110, 190, 50, 50);
+//            maru[i].userInteractionEnabled = YES;  //タッチイベントを許可する
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 1) {
+//            maru[i].frame = CGRectMake(160, 190, 50, 50);
+//             maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 2) {
+//            maru[i].frame = CGRectMake(110, 240, 50, 50);
+//             maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 3) {
+//            maru[i].frame = CGRectMake(160, 240, 50, 50);
+//             maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }
+//    }
+    
     [self moveview];
+    
+    /*==丸つくる==*/
+    [self makeLeftUpwordMaru];
+    [self makeLeftDownwordMaru];
+    [self makeRightUpwordMaru];
+    [self makeRightDownwordMaru];
     
     /*--音--*/
     NSString *path = [[NSBundle mainBundle] pathForResource:@"powan" ofType:@"mp3"] ;
@@ -77,16 +84,13 @@
     }
     
     
+    /*--最初の画面--*/
     firstView =[[UIImageView alloc] initWithFrame:CGRectMake (0,0,320,568)];
     firstView.image = [UIImage imageNamed:@"octagon_first.png"];
     [self.view addSubview:firstView];
-    
-    //消す
-    //[self performSelector:@selector(firstViewDelete) withObject:nil afterDelay:1.0];
-    [self addTapToReturn];
-   
-}
 
+    [self addTapToReturn];  //タップで消す
+}
 
 //タップで消す
 - (void)addTapToReturn {
@@ -103,63 +107,89 @@
 
 
 - (void)color{
-    /*---左上の丸---*/
-    // 0から3の乱数を生成
+//    /*---左上の丸---*/
+//    // 0から3の乱数を生成
+//    random0 = arc4random_uniform(4);
+//    NSLog(@"random0...%d",random0);
+//    if (random == 0) {
+//        maruArray[0] = [UIImage imageNamed:@"marumaruBlue.png"];
+//    }else if(random0 ==1){
+//        maruArray[0] = [UIImage imageNamed:@"marumaruGreen.png"];
+//    }else if(random0 ==2){
+//        maruArray[0] = [UIImage imageNamed:@"marumaruPink.png"];
+//    }else if(random0 ==3){
+//        maruArray[0] = [UIImage imageNamed:@"marumaruYellow.png"];
+//    }
+//    
+//    /*---右上の丸---*/
+//    random1 = arc4random_uniform(4);
+//    NSLog(@"random1...%d",random1);
+//    if (random1 == 0) {
+//        maruArray[1] = [UIImage imageNamed:@"marumaruBlue.png"];
+//    }else if(random1 ==1){
+//        maruArray[1] = [UIImage imageNamed:@"marumaruGreen.png"];
+//    }else if(random1 ==2){
+//        maruArray[1] = [UIImage imageNamed:@"marumaruPink.png"];
+//    }else if(random1 ==3){
+//        maruArray[1] = [UIImage imageNamed:@"marumaruYellow.png"];
+//    }
+//    
+//    /*---左下の丸---*/
+//    random2 = arc4random_uniform(4);
+//    NSLog(@"random2...%d",random2);
+//    if (random2 == 0) {
+//        maruArray[2] = [UIImage imageNamed:@"marumaruBlue.png"];
+//    }else if(random2 ==1){
+//        maruArray[2] = [UIImage imageNamed:@"marumaruGreen.png"];
+//    }else if(random2 ==2){
+//        maruArray[2] = [UIImage imageNamed:@"marumaruPink.png"];
+//    }else if(random2 ==3){
+//        maruArray[2] = [UIImage imageNamed:@"marumaruYellow.png"];
+//    }
+//    
+//    /*---右下の丸---*/
+//    random3 = arc4random_uniform(4);
+//    NSLog(@"random3...%d",random3);
+//    if (random3 == 0) {
+//        maruArray[3] = [UIImage imageNamed:@"marumaruBlue.png"];
+//    }else if(random3 ==1){
+//        maruArray[3] = [UIImage imageNamed:@"marumaruGreen.png"];
+//    }else if(random3 ==2){
+//        maruArray[3] = [UIImage imageNamed:@"marumaruPink.png"];
+//    }else if(random3 ==3){
+//        maruArray[3] = [UIImage imageNamed:@"marumaruYellow.png"];
+//    }
+    
     random0 = arc4random_uniform(4);
-    NSLog(@"random0...%d",random0);
-    if (random == 0) {
-        maruArray[0] = [UIImage imageNamed:@"marumaruBlue.png"];
-    }else if(random0 ==1){
-        maruArray[0] = [UIImage imageNamed:@"marumaruGreen.png"];
-    }else if(random0 ==2){
-        maruArray[0] = [UIImage imageNamed:@"marumaruPink.png"];
-    }else if(random0 ==3){
-        maruArray[0] = [UIImage imageNamed:@"marumaruYellow.png"];
-    }
+    NSLog(@"random0 is %d", random0);
     
-    /*---右上の丸---*/
-    random1 = arc4random_uniform(4);
-    NSLog(@"random1...%d",random1);
-    if (random1 == 0) {
-        maruArray[1] = [UIImage imageNamed:@"marumaruBlue.png"];
-    }else if(random1 ==1){
-        maruArray[1] = [UIImage imageNamed:@"marumaruGreen.png"];
-    }else if(random1 ==2){
-        maruArray[1] = [UIImage imageNamed:@"marumaruPink.png"];
-    }else if(random1 ==3){
-        maruArray[1] = [UIImage imageNamed:@"marumaruYellow.png"];
-    }
-    
-    /*---左下の丸---*/
-    random2 = arc4random_uniform(4);
-    NSLog(@"random2...%d",random2);
-    if (random2 == 0) {
-        maruArray[2] = [UIImage imageNamed:@"marumaruBlue.png"];
-    }else if(random2 ==1){
-        maruArray[2] = [UIImage imageNamed:@"marumaruGreen.png"];
-    }else if(random2 ==2){
-        maruArray[2] = [UIImage imageNamed:@"marumaruPink.png"];
-    }else if(random2 ==3){
-        maruArray[2] = [UIImage imageNamed:@"marumaruYellow.png"];
-    }
-    
-    /*---右下の丸---*/
-    random3 = arc4random_uniform(4);
-    NSLog(@"random3...%d",random3);
-    if (random3 == 0) {
-        maruArray[3] = [UIImage imageNamed:@"marumaruBlue.png"];
-    }else if(random3 ==1){
-        maruArray[3] = [UIImage imageNamed:@"marumaruGreen.png"];
-    }else if(random3 ==2){
-        maruArray[3] = [UIImage imageNamed:@"marumaruPink.png"];
-    }else if(random3 ==3){
-        maruArray[3] = [UIImage imageNamed:@"marumaruYellow.png"];
+    switch (random0) {
+        case 0:
+            maruView = [UIImage imageNamed:@"marumaruBlue.png"];
+            break;
+        case 1:
+            maruView = [UIImage imageNamed:@"marumaruGreen.png"];
+            break;
+        case 2:
+            maruView = [UIImage imageNamed:@"marumaruPink.png"];
+            break;
+        case 3:
+            maruView = [UIImage imageNamed:@"marumaruYellow.png"];
+            break;
+        default:
+            break;
     }
 
 }
 
 
 -(void)moveview{
+    
+    //動く速度
+    moveX = 5;
+    moveY = 5;
+    
+    
     /* 時計回りに45度回転 */
     CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI/4);
     for (int i = 0; i < 4; i++) {
@@ -210,6 +240,7 @@
         sumiColor = 0;
     }
     
+    
     [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
     [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
     maru[0].center=CGPointMake(310, 134);//ここに画像を表示
@@ -233,8 +264,14 @@
     
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //1.7秒後にviewにadd
     
-    sender.view.tag = 1;
     
+    /*----！----*/
+    NSDictionary *dic= [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+    [timer fire];
+    
+    sender.view.tag = 1;
 }
 
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
@@ -272,6 +309,12 @@
 
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
     
+    /*----！----*/
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+    [timer fire];
+
     sender.view.tag = 2;
 }
 
@@ -313,6 +356,12 @@
 
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
     
+    /*----！----*/
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+    [timer fire];
+
     sender.view.tag = 3;
 }
 
@@ -352,6 +401,12 @@
 
     [self performSelector:@selector(add) withObject:nil afterDelay:1.7]; //17.秒後にviewにadd
     
+    /*----！----*/
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+    [timer fire];
+
     sender.view.tag = 4;
 }
 
@@ -370,29 +425,37 @@
     
     [self color];
     
-    for (int i = 0; i < 4; i++) {
-        if (maru[i] == nil) {
-        maru[i] = [[UIImageView alloc] init];
-        maru[i].image = maruArray[i];
-        if (i == 0) {
-            maru[i].frame = CGRectMake(110, 190, 50, 50);
-            maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }else if (i == 1) {
-            maru[i].frame = CGRectMake(160, 190, 50, 50);
-            maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }else if (i == 2) {
-            maru[i].frame = CGRectMake(110, 240, 50, 50);
-            maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }else if (i == 3) {
-            maru[i].frame = CGRectMake(160, 240, 50, 50);
-            maru[i].userInteractionEnabled = YES;
-            [self.view addSubview:maru[i]];
-        }
-        }
-    }
+//    for (int i = 0; i < 4; i++) {
+//        if (maru[i] == nil) {
+//        maru[i] = [[UIImageView alloc] init];
+//        maru[i].image = maruArray[i];
+//        if (i == 0) {
+//            maru[i].frame = CGRectMake(110, 190, 50, 50);
+//            maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 1) {
+//            maru[i].frame = CGRectMake(160, 190, 50, 50);
+//            maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 2) {
+//            maru[i].frame = CGRectMake(110, 240, 50, 50);
+//            maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 3) {
+//            maru[i].frame = CGRectMake(160, 240, 50, 50);
+//            maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }
+//        }
+//    }
+    
+    
+    /*==丸つくる==*/
+    [self makeLeftUpwordMaru];
+    [self makeLeftDownwordMaru];
+    [self makeRightUpwordMaru];
+    [self makeRightDownwordMaru];
+
 
     [self moveview];
     
@@ -410,6 +473,128 @@
     }   //それがビューだったら
 }
  */
+
+
+/*----マーブル作る----*/
+//    for (int i = 0; i < 4; i++) {
+//        maru[i] = [[UIImageView alloc] init];
+//        maru[i].image = maruArray[i];
+//        if (i == 0) {
+//            maru[i].frame = CGRectMake(110, 190, 50, 50);
+//           maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 1) {
+//            maru[i].frame = CGRectMake(160, 190, 50, 50);
+//             maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 2) {
+//            maru[i].frame = CGRectMake(110, 240, 50, 50);
+//             maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }else if (i == 3) {
+//            maru[i].frame = CGRectMake(160, 240, 50, 50);
+//             maru[i].userInteractionEnabled = YES;
+//            [self.view addSubview:maru[i]];
+//        }
+//    }
+
+- (void)makeLeftUpwordMaru
+{
+    //DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(100, 220, MARBLE_WIDTH, MARBLE_HEIGHT)];
+    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 190, 50, 50)];
+    
+    //[self.view addSubview:marble];
+    [self color];
+    marble.image = maruView;
+    marble.userInteractionEnabled = YES; //タッチイベントを許可する
+    [self.view addSubview:marble];
+}
+//expected method to read array element not found on object of type
+//local declaration of  hides instance variable
+
+- (void)makeRightUpwordMaru
+{
+    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 190, 50, 50)];
+    [self color];
+    marble.image = maruView;
+    marble.userInteractionEnabled = YES;
+    [self.view addSubview:marble];
+}
+
+- (void)makeLeftDownwordMaru
+{
+    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 240, 50, 50)];
+    [self color];
+    marble.image = maruView;
+    marble.userInteractionEnabled = YES;
+    [self.view addSubview:marble];
+}
+
+- (void)makeRightDownwordMaru
+{
+    UIImageView *marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 240, 50, 50)];
+    [self color];
+    marble.image = maruView;
+    marble.userInteractionEnabled = YES;
+    [self.view addSubview:marble];
+}
+
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    /* ジェスチャーの同時認識を可能に */
+    return YES;
+}
+
+- (void)moveMarbles:(NSTimer *)timer
+{
+    NSDictionary *dic = [timer userInfo];
+    UIImageView *swipedView = [dic objectForKey:@"view"];
+    
+    if (swipedView.tag == 1) {
+        swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y - moveY);
+        // ballと横壁の当たり判定
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 >320) moveX = - moveX;
+        
+        //上下の壁との当たり判定
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+        
+    
+    }else if (swipedView.tag == 2){
+        swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y + moveY);
+        // ballと横壁の当たり判定
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 320) moveX = - moveX;
+        
+        //上下の壁との当たり判定
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+        
+    }else if (swipedView.tag == 3){
+        swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y + moveY);
+        // ballと横壁の当たり判定
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 320) moveX = - moveX;
+        
+        //上下の壁との当たり判定
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+        
+    }else if (swipedView.tag == 4){
+        swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y - moveY);
+        // ballと横壁の当たり判定
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 320) moveX = - moveX;
+        
+        //上下の壁との当たり判定
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+    }
+}
+
 
 
 @end
