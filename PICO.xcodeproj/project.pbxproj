@@ -26,7 +26,6 @@
 		4F9F734E195D73290082669D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F7330195D73290082669D /* UIKit.framework */; };
 		4F9F7356195D73290082669D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7354195D73290082669D /* InfoPlist.strings */; };
 		4F9F7358195D73290082669D /* PICOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7357195D73290082669D /* PICOTests.m */; };
-		4F9F7364195D7F620082669D /* marumaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7363195D7F620082669D /* marumaru.png */; };
 		4F9F7366195DAAE60082669D /* octagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7365195DAAE60082669D /* octagon.png */; };
 		4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7367196196CC0082669D /* marumaruBlue.png */; };
 		4F9F736C196196CC0082669D /* marumaruGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9F7368196196CC0082669D /* marumaruGreen.png */; };
@@ -72,7 +71,6 @@
 		4F9F7353195D73290082669D /* PICOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PICOTests-Info.plist"; sourceTree = "<group>"; };
 		4F9F7355195D73290082669D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F9F7357195D73290082669D /* PICOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICOTests.m; sourceTree = "<group>"; };
-		4F9F7363195D7F620082669D /* marumaru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaru.png; sourceTree = "<group>"; };
 		4F9F7365195DAAE60082669D /* octagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = octagon.png; sourceTree = "<group>"; };
 		4F9F7367196196CC0082669D /* marumaruBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruBlue.png; sourceTree = "<group>"; };
 		4F9F7368196196CC0082669D /* marumaruGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marumaruGreen.png; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				4F9F7368196196CC0082669D /* marumaruGreen.png */,
 				4F9F7369196196CC0082669D /* marumaruPink.png */,
 				4F9F7365195DAAE60082669D /* octagon.png */,
-				4F9F7363195D7F620082669D /* marumaru.png */,
 				4F9F733B195D73290082669D /* AppDelegate.h */,
 				4F9F733C195D73290082669D /* AppDelegate.m */,
 				4F9F733E195D73290082669D /* Main.storyboard */,
@@ -278,7 +275,6 @@
 				4FC7E85319659E900069A919 /* powan.mp3 in Resources */,
 				4F4E3574196EEE7B00EE4F99 /* icon.png in Resources */,
 				4F445F04196308E80023E666 /* octagon().png in Resources */,
-				4F9F7364195D7F620082669D /* marumaru.png in Resources */,
 				4FC7E85919669B890069A919 /* octagon()2.png in Resources */,
 				4F9F7366195DAAE60082669D /* octagon.png in Resources */,
 				4F9F736B196196CC0082669D /* marumaruBlue.png in Resources */,
