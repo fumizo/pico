@@ -138,12 +138,14 @@
         sumiColor = 0;
     }
 
-    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    marble.center=CGPointMake(310, 134);//ここに画像を表示
-    [UIView commitAnimations]; //アニメーションの実行
     
     if(sumiColor == random0){
+        
+        [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+        [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
+        marble.center=CGPointMake(310, 134);//ここに画像を表示
+        [UIView commitAnimations]; //アニメーションの実行
+
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
         
         score = score+25;
@@ -157,15 +159,16 @@
     }else{
         
         plusScore = 1;
+        
+        /*----！----*/
+        NSDictionary *dic= [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+        
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+        [timer fire];
+        
+        sender.view.tag = 1;
     }
     
-    /*----！----*/
-    NSDictionary *dic= [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-    [timer fire];
-    
-    sender.view.tag = 1;
     
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     [self add:sender.view.frame];
@@ -182,14 +185,15 @@
     }else if (randomOctagon == 1){
         sumiColor = 3;
     }
-    
-    
-    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    marble.center=CGPointMake(10, 434);//ここに画像を表示
-    [UIView commitAnimations]; //アニメーションの実行
+
     
     if(sumiColor == random0){
+        
+        [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+        [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
+        marble.center=CGPointMake(10, 434);//ここに画像を表示
+        [UIView commitAnimations]; //アニメーションの実行
+        
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
         
         score = score+25;
@@ -203,15 +207,17 @@
     }else{
         
         plusScore = 1;
+        
+        /*----！----*/
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+        
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+        [timer fire];
+        
+        sender.view.tag = 2;
+
     }
     
-    /*----！----*/
-    NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-    [timer fire];
-    
-    sender.view.tag = 2;
     
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     [self add:sender.view.frame];
@@ -230,12 +236,12 @@
         sumiColor = 2;
     }
     
-    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    marble.center=CGPointMake(10, 134);//ここに画像を表示
-    [UIView commitAnimations]; //アニメーションの実行
-    
     if(sumiColor == random0){
+        [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+        [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
+        marble.center=CGPointMake(10, 134);//ここに画像を表示
+        [UIView commitAnimations]; //アニメーションの実行
+
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
         
         score = score+25;
@@ -248,15 +254,17 @@
     }else{
         
         plusScore = 1;
+        
+        /*----！----*/
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+        
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+        [timer fire];
+        
+        sender.view.tag = 3;
+
     }
     
-    /*----！----*/
-    NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-    [timer fire];
-    
-    sender.view.tag = 3;
     
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     [self add:sender.view.frame];
@@ -274,12 +282,12 @@
         sumiColor = 1;
     }
     
-    [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
-    [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-    marble.center=CGPointMake(320, 430);//ここに画像を表示
-    [UIView commitAnimations]; //アニメーションの実行
-    
     if(sumiColor == random0){
+        [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
+        [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
+        marble.center=CGPointMake(320, 430);//ここに画像を表示
+        [UIView commitAnimations]; //アニメーションの実行
+        
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
         
         score = score+25;
@@ -292,14 +300,16 @@
     }else{
         
         plusScore = 1;
+        
+        /*----！----*/
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
+        
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
+        [timer fire];
+        
+        sender.view.tag = 4;
+
     }
-    /*----！----*/
-    NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-    [timer fire];
-    
-    sender.view.tag = 4;
     
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     [self add:sender.view.frame];
@@ -411,43 +421,42 @@
     if (swipedView.tag == 1) {
         swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y - moveY);
         // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 >320) moveX = - moveX;
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
         
         //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
-        
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
         
     }else if (swipedView.tag == 2){
         swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y + moveY);
         // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 320) moveX = - moveX;
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
         
         //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 310) moveY = - moveY;
         
     }else if (swipedView.tag == 3){
         swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y + moveY);
         // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 320) moveX = - moveX;
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
         
         //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
         
     }else if (swipedView.tag == 4){
         swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y - moveY);
         // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 0) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 320) moveX = - moveX;
+        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
         
         //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 124) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 444) moveY = - moveY;
+        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
     }
 }
 @end
