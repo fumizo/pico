@@ -63,33 +63,30 @@
 }
 
 
-- (void)color{
+- (UIImage *)setColor
+{
+    int randomNumber = arc4random_uniform(4);
+    NSLog(@"randmNumber is %d", randomNumber);
     
-    random0 = arc4random_uniform(4);
-    NSLog(@"random0 is %d", random0);
-
-    switch (random0) {
+    switch (randomNumber) {
         case 0:
-            maruView = [UIImage imageNamed:@"marumaruBlue.png"];
-            colorNum = 0;
+            return [UIImage imageNamed:@"marumaruBlue.png"];
             break;
         case 1:
-            maruView = [UIImage imageNamed:@"marumaruGreen.png"];
-            colorNum = 1;
+            return [UIImage imageNamed:@"marumaruGreen.png"];
             break;
         case 2:
-            maruView = [UIImage imageNamed:@"marumaruPink.png"];
-            colorNum = 2;
+            return [UIImage imageNamed:@"marumaruPink.png"];
             break;
         case 3:
-            maruView = [UIImage imageNamed:@"marumaruYellow.png"];
-            colorNum = 3;
+            return [UIImage imageNamed:@"marumaruYellow.png"];
             break;
         default:
             break;
     }
-    DMCrookedSwipeView *marble =maruView;
+    return nil;
 }
+
 
 #pragma mark - Gesture
 
@@ -259,7 +256,9 @@
     
     NSLog(@"動かされたmarbleの座標は%@です", NSStringFromCGRect(rect));
     
-    [self color];
+    //[self color];
+    [self setColor];
+    
     
 //    /*==丸つくる==*/
 //    if (rect.origin.x < 100 && rect.origin.y <180) {
@@ -286,8 +285,7 @@
 - (void)makeLeftUpwordMaru
 {
     DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(110,190, MARBLE_WIDTH, MARBLE_HEIGHT)];
-    [self color];
-//    marble.image = maruView;
+    marble.image= [self setColor];
     marble.userInteractionEnabled = YES; //タッチイベントを許可する
     [self.view addSubview:marble];
 }
@@ -295,22 +293,22 @@
 - (void)makeRightUpwordMaru
 {
     DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(160,190, MARBLE_WIDTH, MARBLE_HEIGHT)];
-    [self color];
-//    marble.image = maruView;
+    
+    marble.image= [self setColor];
+/*====画像がついてないから丸が表示されない====*/
     //Property 'A:image' not found on object of type 'B:DMCrookedSwipeView'
     //B（データ型やクラス型）型の A というプロパティ名の物が見つかりません。
     /*解決方法*/
     //プロパティ宣言に失敗しています。h.ファイル内の＠interface~@endの中で宣言した＠propatyのコードをよくチェックして見て下さい。プロパティ名をミスっているかもしれません。
+    
     marble.userInteractionEnabled = YES; //タッチイベントを許可する
     [self.view addSubview:marble];
-    
 }
 
 - (void)makeLeftDownwordMaru
 {
     DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(110,240, MARBLE_WIDTH, MARBLE_HEIGHT)];
-    [self color];
-    //    marble.image = maruView;
+    marble.image= [self setColor];
     marble.userInteractionEnabled = YES; //タッチイベントを許可する
     [self.view addSubview:marble];
 }
@@ -318,8 +316,7 @@
 - (void)makeRightDownwordMaru
 {
     DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(160,240, MARBLE_WIDTH, MARBLE_HEIGHT)];
-    [self color];
-    //    marble.image = maruView;
+    marble.image= [self setColor];
     marble.userInteractionEnabled = YES; //タッチイベントを許可する
     [self.view addSubview:marble];}
 
