@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#define MARBLE_WIDTH 50
+#define MARBLE_HEIGHT 50
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate>{
-    //UIImageView *maru[4];  //丸のimageView
-    //UIImage *maruArray[4];  //丸につける画像の配列
+@interface ViewController : UIViewController {
     UIImage *maruView; //丸につける画像
-    UIImageView *marble;
+    //UIImageView *marble;
     
     IBOutlet UIImageView *octagon;
     
@@ -23,6 +23,7 @@
 //    int random1;
 //    int random2;
 //    int random3;
+    int colorNum;  //色に番号つけといて、すみからーと合わせる
     
     int randomOctagon;  //2パターンの八角形
     int sumiColor;  //blue0,green1,pink2,yellow3
@@ -37,9 +38,7 @@
     int perfectScore; //全部足したスコア
     
     UIImageView *firstView;  //最初の画面
-    
-    float moveX;
-    float moveY;
+
 }
 
 

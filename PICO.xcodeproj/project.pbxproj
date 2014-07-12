@@ -12,6 +12,7 @@
 		4F445F0C196598AB0023E666 /* pico_settei.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F445F0B196598AB0023E666 /* pico_settei.png */; };
 		4F4E3572196EEC3A00EE4F99 /* octagon_first.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4E3571196EEC3A00EE4F99 /* octagon_first.png */; };
 		4F4E3574196EEE7B00EE4F99 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4E3573196EEE7B00EE4F99 /* icon.png */; };
+		4F4E357719719B0D00EE4F99 /* DMCrookedSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F4E357619719B0D00EE4F99 /* DMCrookedSwipeView.m */; };
 		4F9F732D195D73290082669D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F732C195D73290082669D /* Foundation.framework */; };
 		4F9F732F195D73290082669D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F732E195D73290082669D /* CoreGraphics.framework */; };
 		4F9F7331195D73290082669D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9F7330195D73290082669D /* UIKit.framework */; };
@@ -52,6 +53,8 @@
 		4F445F0B196598AB0023E666 /* pico_settei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pico_settei.png; sourceTree = "<group>"; };
 		4F4E3571196EEC3A00EE4F99 /* octagon_first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = octagon_first.png; sourceTree = "<group>"; };
 		4F4E3573196EEE7B00EE4F99 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		4F4E357519719B0D00EE4F99 /* DMCrookedSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCrookedSwipeView.h; sourceTree = "<group>"; };
+		4F4E357619719B0D00EE4F99 /* DMCrookedSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCrookedSwipeView.m; sourceTree = "<group>"; };
 		4F9F7329195D73290082669D /* PICO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PICO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9F732C195D73290082669D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F9F732E195D73290082669D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -157,6 +160,8 @@
 				4F9F733E195D73290082669D /* Main.storyboard */,
 				4F9F7341195D73290082669D /* ViewController.h */,
 				4F9F7342195D73290082669D /* ViewController.m */,
+				4F4E357519719B0D00EE4F99 /* DMCrookedSwipeView.h */,
+				4F4E357619719B0D00EE4F99 /* DMCrookedSwipeView.m */,
 				4F9F7344195D73290082669D /* Images.xcassets */,
 				4F9F7333195D73290082669D /* Supporting Files */,
 				4FC7E85A19669E8C0069A919 /* OptionViewController.h */,
@@ -305,6 +310,7 @@
 				4F9F7343195D73290082669D /* ViewController.m in Sources */,
 				4FC7E85C19669E8C0069A919 /* OptionViewController.m in Sources */,
 				4F9F733D195D73290082669D /* AppDelegate.m in Sources */,
+				4F4E357719719B0D00EE4F99 /* DMCrookedSwipeView.m in Sources */,
 				4F9F7339195D73290082669D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

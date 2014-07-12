@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DMCrookedSwipeView.h"
 
 @interface ViewController ()
 
@@ -66,62 +67,29 @@
     
     random0 = arc4random_uniform(4);
     NSLog(@"random0 is %d", random0);
-    
+
     switch (random0) {
         case 0:
             maruView = [UIImage imageNamed:@"marumaruBlue.png"];
+            colorNum = 0;
             break;
         case 1:
             maruView = [UIImage imageNamed:@"marumaruGreen.png"];
+            colorNum = 1;
             break;
         case 2:
             maruView = [UIImage imageNamed:@"marumaruPink.png"];
+            colorNum = 2;
             break;
         case 3:
             maruView = [UIImage imageNamed:@"marumaruYellow.png"];
+            colorNum = 3;
             break;
         default:
             break;
     }
-    
+    DMCrookedSwipeView *marble =maruView;
 }
-
-
--(void)moveview:(UIImageView *)imageView{
-    
-    //動く速度
-    moveX = 5;
-    moveY = 5;
-
-    CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI/4);
-    [marble setTransform:transform];
-    
-    /* 左上スワイプ */
-    UISwipeGestureRecognizer *swipeLeftGesture =
-    [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft:)];
-    swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-    [marble addGestureRecognizer:swipeLeftGesture];
-    
-    /* 右上スワイプ */
-    UISwipeGestureRecognizer *swipeUpwardGesture =
-    [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeUpward:)];
-    swipeUpwardGesture.direction = UISwipeGestureRecognizerDirectionUp;
-    [marble addGestureRecognizer:swipeUpwardGesture];
-    
-    /* 左下スワイプ */
-    UISwipeGestureRecognizer *swipeDownwardGesture =
-    [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDownward:)];
-    swipeDownwardGesture.direction = UISwipeGestureRecognizerDirectionDown;
-    [marble addGestureRecognizer:swipeDownwardGesture];
-    
-    
-    /* 右下スワイプ */
-    UISwipeGestureRecognizer *swipeRightGesture =
-    [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeRight:)];
-    swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    [marble addGestureRecognizer:swipeRightGesture];
-}
-
 
 #pragma mark - Gesture
 
@@ -129,21 +97,18 @@
 {
     NSLog(@"右上");
     [audio play] ; //音をならす
-    
-    
+
     /*色の番号を決めといて画像に合わせて、場所と色をリンクさせる*/
     if (randomOctagon == 0) {
         sumiColor = 3;
     }else if (randomOctagon == 1){
         sumiColor = 0;
     }
-
     
-    if(sumiColor == random0){
-        
+    if(sumiColor == colorNum){
         [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
         [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-        marble.center=CGPointMake(310, 134);//ここに画像を表示
+        DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(310,134, MARBLE_WIDTH, MARBLE_HEIGHT)];
         [UIView commitAnimations]; //アニメーションの実行
 
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
@@ -157,16 +122,7 @@
         scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
         
     }else{
-        
         plusScore = 1;
-        
-        /*----！----*/
-        NSDictionary *dic= [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-        
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-        [timer fire];
-        
-        sender.view.tag = 1;
     }
     
     
@@ -187,11 +143,11 @@
     }
 
     
-    if(sumiColor == random0){
+    if(sumiColor == colorNum){
         
         [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
         [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-        marble.center=CGPointMake(10, 434);//ここに画像を表示
+        DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(10,434, MARBLE_WIDTH, MARBLE_HEIGHT)];
         [UIView commitAnimations]; //アニメーションの実行
         
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
@@ -207,23 +163,13 @@
     }else{
         
         plusScore = 1;
-        
-        /*----！----*/
-        NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-        
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-        [timer fire];
-        
-        sender.view.tag = 2;
-
+    
     }
     
     
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     [self add:sender.view.frame];
 }
-
-
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
@@ -236,10 +182,10 @@
         sumiColor = 2;
     }
     
-    if(sumiColor == random0){
+    if(sumiColor == colorNum){
         [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
         [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-        marble.center=CGPointMake(10, 134);//ここに画像を表示
+        DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(10,134, MARBLE_WIDTH, MARBLE_HEIGHT)];
         [UIView commitAnimations]; //アニメーションの実行
 
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
@@ -252,17 +198,7 @@
         perfectScore = score + pScore;
         scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
     }else{
-        
         plusScore = 1;
-        
-        /*----！----*/
-        NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-        
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-        [timer fire];
-        
-        sender.view.tag = 3;
-
     }
     
     
@@ -282,10 +218,10 @@
         sumiColor = 1;
     }
     
-    if(sumiColor == random0){
+    if(sumiColor == colorNum){
         [UIView beginAnimations:nil context:nil]; //アニメーションの設定開始
         [UIView setAnimationDuration:0.6]; //アニメーションは0.6秒
-        marble.center=CGPointMake(320, 430);//ここに画像を表示
+        DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(320,430, MARBLE_WIDTH, MARBLE_HEIGHT)];
         [UIView commitAnimations]; //アニメーションの実行
         
         [self performSelector:@selector(delete) withObject:nil afterDelay:1.0]; //1秒後にviewからdelete
@@ -299,16 +235,7 @@
         scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
     }else{
         
-        plusScore = 1;
-        
-        /*----！----*/
-        NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
-        
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
-        [timer fire];
-        
-        sender.view.tag = 4;
-
+      plusScore = 1;
     }
     
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
@@ -322,8 +249,10 @@
 }
 
 -(void)delete{
-    [marble removeFromSuperview];
-    marble = nil; //maru[0]を空にする（maru[i]にしたい）飛ばした丸だけを更新するため。
+//    for ( DMCrookedSwipeView *marble in [self.view subviews]) {
+//        [ marble removeFromSuperview];
+//    }
+    //DMCrookedSwipeView *marble = nil; //maru[0]を空にする（maru[i]にしたい）飛ばした丸だけを更新するため。
 }
 
 -(void)add:(CGRect)rect{
@@ -356,107 +285,42 @@
 /*----マーブル作る----*/
 - (void)makeLeftUpwordMaru
 {
-    //DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(100, 220, MARBLE_WIDTH, MARBLE_HEIGHT)];
-    marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 190, 50, 50)];
-    
-    //[self.view addSubview:marble];
+    DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(110,190, MARBLE_WIDTH, MARBLE_HEIGHT)];
     [self color];
-    marble.image = maruView;
+//    marble.image = maruView;
     marble.userInteractionEnabled = YES; //タッチイベントを許可する
-    
-    [self moveview:marble];
-    
     [self.view addSubview:marble];
 }
 
 - (void)makeRightUpwordMaru
 {
-    marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 190, 50, 50)];
+    DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(160,190, MARBLE_WIDTH, MARBLE_HEIGHT)];
     [self color];
-    marble.image = maruView;
-    marble.userInteractionEnabled = YES;
-    
-    [self moveview:marble];
-    
+//    marble.image = maruView;
+    //Property 'A:image' not found on object of type 'B:DMCrookedSwipeView'
+    //B（データ型やクラス型）型の A というプロパティ名の物が見つかりません。
+    /*解決方法*/
+    //プロパティ宣言に失敗しています。h.ファイル内の＠interface~@endの中で宣言した＠propatyのコードをよくチェックして見て下さい。プロパティ名をミスっているかもしれません。
+    marble.userInteractionEnabled = YES; //タッチイベントを許可する
     [self.view addSubview:marble];
+    
 }
 
 - (void)makeLeftDownwordMaru
 {
-    marble = [[UIImageView alloc] initWithFrame:CGRectMake(110, 240, 50, 50)];
+    DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(110,240, MARBLE_WIDTH, MARBLE_HEIGHT)];
     [self color];
-    marble.image = maruView;
-    marble.userInteractionEnabled = YES;
-    
-    [self moveview:marble];
-    
+    //    marble.image = maruView;
+    marble.userInteractionEnabled = YES; //タッチイベントを許可する
     [self.view addSubview:marble];
 }
 
 - (void)makeRightDownwordMaru
 {
-    marble = [[UIImageView alloc] initWithFrame:CGRectMake(160, 240, 50, 50)];
+    DMCrookedSwipeView *marble = [[DMCrookedSwipeView alloc] initWithFrame:CGRectMake(160,240, MARBLE_WIDTH, MARBLE_HEIGHT)];
     [self color];
-    marble.image = maruView;
-    marble.userInteractionEnabled = YES;
-    
-    [self moveview:marble];
-    
-    [self.view addSubview:marble];
-}
+    //    marble.image = maruView;
+    marble.userInteractionEnabled = YES; //タッチイベントを許可する
+    [self.view addSubview:marble];}
 
-
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    /* ジェスチャーの同時認識を可能に */
-    return YES;
-}
-
-- (void)moveMarbles:(NSTimer *)timer
-{
-    NSDictionary *dic = [timer userInfo];
-    UIImageView *swipedView = [dic objectForKey:@"view"];
-
-    if (swipedView.tag == 1) {
-        swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y - moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
-        
-    }else if (swipedView.tag == 2){
-        swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y + moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 310) moveY = - moveY;
-        
-    }else if (swipedView.tag == 3){
-        swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y + moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
-        
-    }else if (swipedView.tag == 4){
-        swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y - moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
-    }
-}
 @end
