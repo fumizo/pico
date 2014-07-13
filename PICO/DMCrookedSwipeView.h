@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DMCrookedSwipeView : UIView
+@interface DMCrookedSwipeView : UIImageView
 <UIGestureRecognizerDelegate>
 {
     float moveX;
