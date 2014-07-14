@@ -8,25 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "DMCrookedSwipeView.h"
 #define MARBLE_WIDTH 50
 #define MARBLE_HEIGHT 50
 
 @interface ViewController : UIViewController {
     UIImage *maruView; //丸につける画像
-    //UIImageView *marble;
     
     IBOutlet UIImageView *octagon;
     
     
     /*丸の色*/
     int random0;
-//    int random1;
-//    int random2;
-//    int random3;
-    int colorNum;  //色に番号つけといて、すみからーと合わせる
     
+    
+    int colorNum;  //色に番号つけといて、すみからーと合わせる
     int randomOctagon;  //2パターンの八角形
-    int sumiColor;  //blue0,green1,pink2,yellow3
+    //int sumiColor;  //blue0,green1,pink2,yellow3
+
+    
+    int torf; //すみと丸が合ってたら１、間違ってたら０
     
     AVAudioPlayer *audio;
     

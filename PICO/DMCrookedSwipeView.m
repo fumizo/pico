@@ -10,6 +10,16 @@
 
 @implementation DMCrookedSwipeView
 
+@synthesize torf;
+
+@synthesize colorNum;
+@synthesize randomOctagon;
+
+@synthesize score;
+@synthesize pScore;
+@synthesize plusScore;
+@synthesize perfectScore;
+
 
 #pragma mark - init
 - (id)initWithFrame:(CGRect)frame
@@ -64,6 +74,19 @@
 
 - (void)swipeUpward:(UISwipeGestureRecognizer *)sender
 {
+    NSLog(@"右上");
+    if (randomOctagon == 0) {
+        sumiColor = 3;
+    }else if (randomOctagon == 1){
+        sumiColor = 0;
+    }
+    
+    if(sumiColor == colorNum){
+        torf = 1;
+    }else{
+        torf = 0;
+    }
+
     NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
     
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
@@ -74,6 +97,19 @@
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)sender
 {
+    NSLog(@"右下");
+    if (randomOctagon == 0) {
+        sumiColor = 2;
+    }else if (randomOctagon == 1){
+        sumiColor = 1;
+    }
+    
+    if(sumiColor == colorNum){
+        torf = 1;
+    }else{
+        torf = 0;
+    }
+
     NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
     
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
@@ -85,6 +121,19 @@
 
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
 {
+    NSLog(@"左下");
+    if (randomOctagon == 0) {
+        sumiColor = 0;
+    }else if (randomOctagon == 1){
+        sumiColor = 3;
+    }
+    
+    if(sumiColor == colorNum){
+        torf = 1;
+    }else{
+        torf = 0;
+    }
+
     NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
     
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:)
@@ -98,17 +147,25 @@
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
+    NSLog(@"左上");
+    if (randomOctagon == 0) {
+        sumiColor = 1;
+    }else if (randomOctagon == 1){
+        sumiColor = 2;
+    }
+    
+    if(sumiColor == colorNum){
+        torf = 1;
+    }else{
+        torf = 0;
+    }
+
     NSDictionary *dic = [NSDictionary dictionaryWithObject:sender.view forKey:@"view"];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(moveMarbles:) userInfo:dic repeats:YES];
     [timer fire];
     
     sender.view.tag = 4;
 }
-
-/*----------- 分からないこと----------*/
-/*
- NSDictionaryはNSArray同様にオブジェクトの集合を格納するものですが、NSArrayとは管理の方法が違います。 NSArrayはそれぞれのオブジェクトに順番に番号をつけて管理しますが、こちらはキーと呼ばれる名前をそれぞれのオブジェクトに結びつけた状態で管理します。 キーはNSStringです。オブジェクト全体で一つのものの状態を表す、というような使われ方をします。 ファイルの持つ様々な情報（ファイルサイズなど）をこのオブジェクトで一まとめにして受け取るというような使われ方をします。
- */
 
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -122,52 +179,113 @@
 - (void)moveMarbles:(NSTimer *)timer
 {
     NSDictionary *dic = [timer userInfo];
+    
     UIImageView *swipedView = [dic objectForKey:@"view"];
     
-    if (swipedView.tag == 1) {
-        swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y - moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
-        
-    }else if (swipedView.tag == 2){
-        swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y + moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 310) moveY = - moveY;
-        
-    }else if (swipedView.tag == 3){
-        swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y + moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
-        
-    }else if (swipedView.tag == 4){
-        swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y - moveY);
-        // ballと横壁の当たり判定
-        if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
-        if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
-        
-        //上下の壁との当たり判定
-        if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
-        if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
+    switch ( torf ) {
+        case 0:
+            
+            pScore = 1;
+            
+            if (swipedView.tag == 1) {
+                swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y - moveY);
+                // ballと横壁の当たり判定
+                if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+                if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
+                
+                //上下の壁との当たり判定
+                if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+                if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
+                
+            }else if (swipedView.tag == 2){
+                swipedView.center = CGPointMake(swipedView.center.x + moveX, swipedView.center.y + moveY);
+                // ballと横壁の当たり判定
+                if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+                if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
+                
+                //上下の壁との当たり判定
+                if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+                if(swipedView.center.y + swipedView.bounds.size.height / 2 > 310) moveY = - moveY;
+                
+            }else if (swipedView.tag == 3){
+                swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y + moveY);
+                // ballと横壁の当たり判定
+                if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+                if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
+                
+                //上下の壁との当たり判定
+                if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+                if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
+                
+            }else if (swipedView.tag == 4){
+                swipedView.center = CGPointMake(swipedView.center.x - moveX, swipedView.center.y - moveY);
+                // ballと横壁の当たり判定
+                if(swipedView.center.x - swipedView.bounds.size.width / 2 < 10) moveX = - moveX;
+                if(swipedView.center.x + swipedView.bounds.size.width / 2 > 310) moveX = - moveX;
+                
+                //上下の壁との当たり判定
+                if(swipedView.center.y - swipedView.bounds.size.height / 2 < 134) moveY = - moveY;
+                if(swipedView.center.y + swipedView.bounds.size.height / 2 > 434) moveY = - moveY;
+            }
+            break;
+        case 1:
+            score = score+25;
+            plusScore =  plusScore * 3;
+            if (plusScore % 27 == 0){
+                pScore = 25 * plusScore/27/10;
+            }
+            perfectScore = score + pScore;
+            //scoreLabel.text = [NSString stringWithFormat:@"%d",perfectScore];
+
+            if (swipedView.tag == 1) {
+                [UIView animateWithDuration:0.8f animations:^{
+                    //animateWithDurationがアニメーションの速度
+                    // アニメーションをする処理
+                    swipedView.center = CGPointMake(310, 134);
+                                 }
+                                 completion:^(BOOL finished){
+                                     // アニメーションが終わった後実行する処理
+                                     //[swipedView removeFromSuperview];
+                                 }];
+                
+            }else if (swipedView.tag == 2){
+                [UIView animateWithDuration:0.8f animations:^{
+                    //animateWithDurationがアニメーションの速度
+                    // アニメーションをする処理
+                    swipedView.center = CGPointMake(310, 434);
+                }
+                                 completion:^(BOOL finished){
+                                     // アニメーションが終わった後実行する処理
+                                     //[swipedView removeFromSuperview];
+                                 }];
+                
+            }else if (swipedView.tag == 3){
+                [UIView animateWithDuration:0.8f animations:^{
+                    //animateWithDurationがアニメーションの速度
+                    // アニメーションをする処理
+                    swipedView.center = CGPointMake(10, 434);
+                }
+                                 completion:^(BOOL finished){
+                                     // アニメーションが終わった後実行する処理
+                                     //[swipedView removeFromSuperview];
+                                 }];
+                
+            }else if (swipedView.tag == 4){
+                [UIView animateWithDuration:0.8f animations:^{
+                    //animateWithDurationがアニメーションの速度
+                    // アニメーションをする処理
+                    swipedView.center = CGPointMake(10, 134);
+                }
+                                 completion:^(BOOL finished){
+                                     // アニメーションが終わった後実行する処理
+                                     //[swipedView removeFromSuperview];
+                                 }];
+            
+            }
+        default:
+            break;
     }
-}
-
-
-
-
+    
+    }
 
 @end
