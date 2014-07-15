@@ -7,10 +7,10 @@
 //
 
 #import "DMCrookedSwipeView.h"
+#import "ViewController.h"
+#import "ViewController.m"
 
 @implementation DMCrookedSwipeView
-
-@synthesize torf;
 
 @synthesize colorNum;
 @synthesize randomOctagon;
@@ -19,7 +19,6 @@
 @synthesize pScore;
 @synthesize plusScore;
 @synthesize perfectScore;
-
 
 #pragma mark - init
 - (id)initWithFrame:(CGRect)frame
@@ -30,6 +29,8 @@
         [self makeView];
     }
     return self;
+    
+    [self main];   //なんとなくここなら呼び出されそうだからここで呼んどく
 }
 
 #pragma mark - GestureView
@@ -93,6 +94,9 @@
     [timer fire];
     
     sender.view.tag = 1;
+    
+    //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
+    [self add:sender.view.frame];
 }
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)sender
@@ -117,6 +121,8 @@
     
     sender.view.tag = 2;
     
+    //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
+    [self add:sender.view.frame];
 }
 
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
@@ -142,6 +148,9 @@
     [timer fire];
     
     sender.view.tag = 3;
+    
+    //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
+    [self add:sender.view.frame];
 }
 
 
@@ -165,6 +174,9 @@
     [timer fire];
     
     sender.view.tag = 4;
+    
+    //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
+    [self add:sender.view.frame];
 }
 
 
@@ -280,12 +292,29 @@
                                      // アニメーションが終わった後実行する処理
                                      //[swipedView removeFromSuperview];
                                  }];
-            
             }
         default:
             break;
     }
     
     }
+
+- (void)main
+{
+    //ViewController初期化
+    ViewController *myClass = [[ViewController alloc] init];
+    //ViewControllerの delegateに自分自身を渡す
+    ViewController.delegate = self;
+    //ViewControllerのデリゲートメソッド呼び出し
+    [ViewController add];
+}
+
+
+//デリゲートメソッド
+- (void)sample
+{
+    NSLog(@"sample");
+}
+
 
 @end

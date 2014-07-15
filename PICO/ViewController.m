@@ -15,6 +15,9 @@
 
 @implementation ViewController
 
+//delegateを宣言しておく
+@synthesize delegate;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -28,11 +31,7 @@
     [self makeRightUpwordMaru];
     [self makeRightDownwordMaru];
     
-    /*--音--*/
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"powan" ofType:@"mp3"] ;
-    NSURL *url = [NSURL fileURLWithPath:path] ;
-    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil] ;
-    
+        
     /*--octagon--*/
     randomOctagon = arc4random_uniform(2);
     NSLog(@"randomOctagon is...%d",randomOctagon);
@@ -49,6 +48,11 @@
     [self.view addSubview:firstView];
     
     [self addTapToReturn];  //タップで消す
+    
+    /*--音--*/
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"powan" ofType:@"mp3"] ;
+    NSURL *url = [NSURL fileURLWithPath:path] ;
+    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil] ;
 }
 
 //タップで消す
@@ -90,8 +94,6 @@
             break;
     }
     return nil;
-    
-    
 }
 
 
@@ -100,11 +102,7 @@
 - (void)swipeUpward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右上");
-    [audio play] ; //音をならす
-
-    /*色の番号を決めといて画像に合わせて、場所と色をリンクさせる*/
-        
-    
+    [audio play];
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     //[self add:sender.view.frame];
 
@@ -113,19 +111,15 @@
 - (void)swipeDownward:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左下");
-    [audio play] ; //音をならす
-    
-        
-    
+    [audio play];
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
-    [self add:sender.view.frame];
+    //[self add:sender.view.frame];
 }
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"左上");
-    [audio play] ; //音をならす    
-    
+    [audio play];
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     //[self add:sender.view.frame];
 }
@@ -134,8 +128,7 @@
 - (void)swipeRight:(UISwipeGestureRecognizer *)sender
 {
     NSLog(@"右下");
-    [audio play] ; //音をならす
-    
+    [audio play];
     //動かしたViewのもともとの位置を取得して、その場所に新しくmarbleを作る
     //[self add:sender.view.frame];
 }
@@ -148,30 +141,30 @@
 
 
 -(void)add:(CGRect)rect{
+    [delegate sample];
     
     NSLog(@"動かされたmarbleの座標は%@です", NSStringFromCGRect(rect));
     [self setColor];
     
-    
-//    /*==丸つくる==*/
-//    if (rect.origin.x < 100 && rect.origin.y <180) {
-//        //左上
-//        NSLog(@"左上");
-//        [self makeLeftUpwordMaru];
-//    }else if(rect.origin.x > 145 && rect.origin.y <180){
-//        //右上
-//        NSLog(@"右上");
-//        [self makeRightUpwordMaru];
-//    }else if(rect.origin.x > 145 && rect.origin.y >225){
-//        //右下
-//        NSLog(@"左下");
-//        [self makeRightDownwordMaru];
-//    }else if(rect.origin.x < 100 && rect.origin.y >225) {
-//        //左下
-//        NSLog(@"左下");
-//        [self makeLeftDownwordMaru];
-//    }
-    
+    /*==丸つくる==*/
+    if (rect.origin.x < 100 && rect.origin.y <180) {
+        //左上
+        NSLog(@"左上new");
+        [self makeLeftUpwordMaru];
+    }else if(rect.origin.x > 145 && rect.origin.y <180){
+        //右上
+        NSLog(@"右上new");
+        [self makeRightUpwordMaru];
+    }else if(rect.origin.x > 145 && rect.origin.y >225){
+        //右下
+        NSLog(@"左下new");
+        [self makeRightDownwordMaru];
+    }else if(rect.origin.x < 100 && rect.origin.y >225) {
+        //左下
+        NSLog(@"左下new");
+        [self makeLeftDownwordMaru];
+    }
+  
 }
 
 /*----マーブル作る----*/

@@ -7,21 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import <AVFoundation/AVFoundation.h>
 #import "ViewController.h"
 
 
-
-@interface DMCrookedSwipeView : UIImageView
-<UIGestureRecognizerDelegate>
+@interface DMCrookedSwipeView : UIImageView <UIGestureRecognizerDelegate>
 {
+    //<SampleDelegate>も指定したい
+    
     float moveX;
     float moveY;
     
-    int torf;   //合ってたら１、間違ってたら２
+    int torf;   //すみと丸の色が合ってたら１、間違ってたら２
     
     int colorNum;  //色に番号つけといて、すみからーと合わせる
     int randomOctagon;  //2パターンの八角形
-    int sumiColor;  //blue0,green1,pink2,yellow3    
+    int sumiColor;  //blue0,green1,pink2,yellow3
+    //cannot find protocol declaration for
     
     
     /*---SCORE---*/
@@ -29,9 +31,9 @@
     int plusScore;    //連続で成功したとき足す数を計算する用
     int pScore;       //連続で成功したときに足すスコア
     int perfectScore; //全部足したスコア
+    
+    //AVAudioPlayer *audio;
 }
-
-@property(nonatomic, assign) int torf;
 
 @property(nonatomic, assign) int randomOctagon;
 @property(nonatomic, assign) int colorNum;

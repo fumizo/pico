@@ -12,24 +12,28 @@
 #define MARBLE_WIDTH 50
 #define MARBLE_HEIGHT 50
 
+
+//protocolを宣言しておく
+@protocol SampleDelegate;
+
+
 @interface ViewController : UIViewController {
-    UIImage *maruView; //丸につける画像
     
+    //デリゲートを登録
+    id<SampleDelegate>_delegate;
+
+    
+    UIImage *maruView; //丸につける画像
     IBOutlet UIImageView *octagon;
+    
+    AVAudioPlayer *audio;
     
     
     /*丸の色*/
     int random0;
-    
-    
+
     int colorNum;  //色に番号つけといて、すみからーと合わせる
     int randomOctagon;  //2パターンの八角形
-    //int sumiColor;  //blue0,green1,pink2,yellow3
-
-    
-    int torf; //すみと丸が合ってたら１、間違ってたら０
-    
-    AVAudioPlayer *audio;
     
     /*---SCORE---*/
     IBOutlet UILabel *scoreLabel;
@@ -41,6 +45,21 @@
     UIImageView *firstView;  //最初の画面
 
 }
+
+//デリゲートのプロパティ宣言
+@property (nonatomic, assign) id<SampleDelegate> delegate;
+//ViewControllerから呼ばれるサンプルメソッド
+- (void)add;
+
+@end
+
+
+#pragma mark delegate prottype
+//protocol宣言
+@protocol SampleDelegate<NSObject>
+//デリゲート経由で呼ばれるメソッドを宣言
+@optional
+- (void)sample;
 
 
 @end
